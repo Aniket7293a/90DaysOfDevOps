@@ -1,76 +1,63 @@
-[# 🚀 Day 1 of #90DaysOfDevOps Challenge
+# Day 1 - #90DaysOfDevOps 
 
-## 📌 What is DevOps?
+Today is Day 1 of my **#90DaysOfDevOps Challenge**.
 
-DevOps is a culture and set of practices that bridges the gap between Development and Operations teams. It focuses on collaboration, automation, Continuous Integration (CI), Continuous Deployment (CD), monitoring, and faster software delivery while ensuring reliability, scalability, and efficiency.
+I have started learning DevOps through the **TrainWithShubham Udaan Batch 11**. During this journey, I will share what I learn, practice, and build every day.
 
----
+## What is DevOps?
 
-# 💡 Why I'm Learning DevOps & Cloud
+DevOps is a way of bringing Development and Operations teams together to make the software development and deployment process better.
 
-As a fresher, I want to build a successful career in DevOps and Cloud Computing. My goal is to understand the core concepts of DevOps from the ground up and learn how modern software is built, deployed, and maintained.
+It includes things like automation, CI/CD, monitoring, testing, and faster deployments.
 
-I also want to gain hands-on experience with industry-standard tools and technologies so that I can become a skilled:
+## Why am I learning DevOps?
 
-- DevOps Engineer
-- Site Reliability Engineer (SRE)
-- AWS Cloud Engineer
-- Linux Administrator
+I am a fresher and I want to start my career in **DevOps and Cloud Computing**.
 
-Through this **#90DaysOfDevOps** challenge, I aim to strengthen my practical knowledge, work on real-world projects, and become job-ready for DevOps and Cloud roles in **2026**.
+I already know the basics of some tools, but now I want to understand how these tools are actually used in real projects.
 
----
+My main goal is to learn by doing things practically instead of only watching videos or reading theory.
 
-# 🎯 My End Goals
+## My Current Skills
 
-- Become a skilled DevOps Engineer
-- Secure a great opportunity in DevOps or Cloud Computing
-- Continuously grow in the IT industry
-- Build real-world DevOps projects
-- Create a strong GitHub portfolio showcasing my work
+I have basic knowledge of:
 
----
+* Linux
+* Python
+* AWS
+* Docker
+* Kubernetes
+* Git & GitHub
+* Networking
+* Troubleshooting
 
-# 📚 My Current Skill Level
+I still have a lot to learn, and that's one of the main reasons I started this challenge.
 
-I'm a fresher with basic knowledge of:
+## My Goals for the Next 90 Days
 
-- Linux
-- Python
-- AWS
-- kubernetes
-- Docker
-- Git & GitHub
-- Networking
-- Troubleshooting
+During these 90 days, I want to focus on:
 
----
+* Linux and Networking
+* Docker
+* Kubernetes
+* AWS
+* Git & GitHub
+* Jenkins and GitHub Actions
+* CI/CD
+* Prometheus and Grafana
+* Automation
+* Real-world DevOps projects
 
-# 🗓️ Goals for the Next 90 Days
+My goal is not just to learn different tools. I want to understand **how they work together and why we use them**.
 
-- Improve Linux administration and troubleshooting skills
-- Learn Docker and Kubernetes fundamentals
-- Understand CI/CD pipelines and automation
-- Build real-world DevOps projects
-- Stay consistent with daily hands-on practice
+## Final Note
 
----
+This is just the beginning.
 
-# 🛠️ Core DevOps Skills I Want to Build
+For the next 90 days, I will try to stay consistent, practice regularly, build projects, make mistakes, fix them, and share what I learn.
 
-1. Linux
-2. Networking Fundamentals
-3. Docker & Kubernetes
-4. AWS Cloud Fundamentals
-5. CI/CD using GitHub Actions & Jenkins
-6. Monitoring with Prometheus & Grafana
+Hopefully, by the end of this challenge, I will have better DevOps skills, some good projects, and a much stronger GitHub profile.
 
----
+**Day 1 done. A long way to go! **
 
-# 📝 Final Note
-
-This challenge is more than just completing daily tasks—it's about building a strong foundation in DevOps and Cloud Computing. I want to understand concepts deeply, practice consistently, and gradually move from beginner to advanced topics.
-
-Every single day is an opportunity to learn something new, improve my skills, and move one step closer to achieving my goal of becoming a successful DevOps Engineer.
-
-**Let's begin this journey! 🚀**](https://github.com/akverma24400/90DaysOfDevOps)
+#90DaysOfDevOps #DevOps #TrainWithShubham #UdaanBatch11
