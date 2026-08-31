@@ -76,22 +76,8 @@ This drill builds:
 
 These habits reduce downtime and prevent guesswork in production.
 
----
 
-## Submission
-1. Fork this `90DaysOfDevOps` repository  
-2. Navigate to the `2026/day-05/` folder  
-3. Add your `linux-troubleshooting-runbook.md` file  
-4. Commit and push your changes to your fork  
 
----
-
-## Learn in Public
-Share your Day 05 progress on LinkedIn:
-
-- Post 2–3 lines on the checks you ran and one insight
-- Share the service you inspected and one “next step” from your runbook
-- Optional: screenshot of your runbook
 
 Use hashtags:  
 #90DaysOfDevOps  
