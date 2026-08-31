@@ -76,13 +76,3 @@ This drill builds:
 
 These habits reduce downtime and prevent guesswork in production.
 
-
-
-
-Use hashtags:  
-#90DaysOfDevOps  
-#DevOpsKaJosh  
-#TrainWithShubham
-
-Happy Learning  
-**TrainWithShubham**
