@@ -1,153 +1,431 @@
+# Day 09 Challenge – Linux User & Group Management
 
+## Objective
+Today's goal was to practice Linux user and group management by:
 
+- Creating users and passwords
+- Creating groups
+- Assigning users to groups
+- Managing shared directories with permissions
+- Testing access between users
 
-Day 09 Challenge – Linux User & Group Management
- Objective
-Today I practiced Linux user and group management and learned how groups and permissions can be used to manage access to shared directories.
+---
 
-👤 Users Created
-The following users were created with home directories:
+# Task 1 – Create Users
 
-tokyo
+## Create Users with Home Directories
 
-berlin
-
-professor
-
-nairobi
-
-Commands Used
+```bash
 sudo useradd -m tokyo
 sudo useradd -m berlin
 sudo useradd -m professor
+```
 
+## Set Passwords
+
+```bash
 sudo passwd tokyo
 sudo passwd berlin
 sudo passwd professor
-For Task 5:
+```
 
-sudo useradd -m nairobi
-sudo passwd nairobi
-Verification
-cat /etc/passwd | grep -E 'tokyo|berlin|professor|nairobi'
+---
+
+## Verification
+
+### Check `/etc/passwd`
+
+```bash
+cat /etc/passwd | grep -E 'tokyo|berlin|professor'
+```
+
+### Check Home Directories
+
+```bash
 ls /home
-👥 Groups Created
-The following groups were created:
+```
 
-developers
+### Expected Output
 
-admins
-
-project-team
-
-Commands Used
-sudo groupadd developers
-sudo groupadd admins
-sudo groupadd project-team
-Verification
-cat /etc/group | grep -E 'developers|admins|project-team'
-🔐 Group Assignments
-User	Groups
-tokyo	developers, project-team
-berlin	developers, admins
-professor	admins
-nairobi	project-team
-Commands Used
-sudo usermod -aG developers tokyo
-sudo usermod -aG developers,admins berlin
-sudo usermod -aG admins professor
-
-sudo usermod -aG project-team nairobi
-sudo usermod -aG project-team tokyo
-Verification
-groups tokyo
-groups berlin
-groups professor
-groups nairobi
-📂 Shared Development Directory
-1. Create the directory
-sudo mkdir -p /opt/dev-project
-2. Set group ownership
-sudo chgrp developers /opt/dev-project
-3. Set permissions
-sudo chmod 775 /opt/dev-project
-775 means:
-
-rwxrwxr-x
-Owner → read, write, execute
-
-Group → read, write, execute
-
-Others → read, execute
-
-4. Verify permissions
-ls -ld /opt/dev-project
-5. Test file creation
-Create a file as tokyo:
-
-sudo -u tokyo touch /opt/dev-project/tokyo-file.txt
-Create a file as berlin:
-
-sudo -u berlin touch /opt/dev-project/berlin-file.txt
-Verify:
-
-ls -l /opt/dev-project
-🤝 Team Workspace
-1. Create the directory
-sudo mkdir -p /opt/team-workspace
-2. Set group ownership
-sudo chgrp project-team /opt/team-workspace
-3. Set permissions
-sudo chmod 775 /opt/team-workspace
-4. Verify
-ls -ld /opt/team-workspace
-5. Test as nairobi
-sudo -u nairobi touch /opt/team-workspace/test-file.txt
-Verify:
-
-ls -l /opt/team-workspace
-🧪 Verification Summary
-Users
+```bash
 tokyo
 berlin
 professor
-nairobi
-Groups
-developers
-admins
-project-team
-Directories
-Directory	Group Owner	Permissions
-/opt/dev-project	developers	775
-/opt/team-workspace	project-team	775
-🛠️ Important Commands Practiced
-Command	Purpose
-useradd -m	Create a user with a home directory
-passwd	Set a user password
-groupadd	Create a group
-usermod -aG	Add a user to supplementary groups
-groups	Check group membership
-mkdir -p	Create a directory
-chgrp	Change group ownership
-chmod 775	Set directory permissions
-ls -ld	Check directory permissions
-sudo -u	Run a command as another user
-touch	Create an empty file
-📖 What I Learned
-Linux users and groups can be used to organize access on a server.
+```
 
-Group ownership and permissions make it easier to create shared workspaces.
+---
 
-sudo -u is useful for testing what another user can access or create.
+# Task 2 – Create Groups
 
-One thing I understood better today was how 775 permissions allow the owner and group members to work inside a directory while giving others read and execute access.
+## Create Groups
 
-🚀 DevOps Connection
-User and group management is an important part of working with Linux servers.
+```bash
+sudo groupadd developers
+sudo groupadd admins
+```
 
-In a real DevOps environment, different users may need different levels of access to application files, deployment directories, and server resources. Using groups and permissions helps manage this access in a controlled way.
+---
 
-✅ Day 09 Completed
-Another step completed in my 90 Days of DevOps journey.
+## Verification
 
-#90DaysOfDevOps #DevOpsKaJosh #TrainWithShubham
+```bash
+cat /etc/group | grep -E 'developers|admins'
+```
+
+### Expected Output
+
+```bash
+developers:x:1004:
+admins:x:1005:
+```
+
+---
+
+# Task 3 – Assign Users to Groups
+
+## Assign Users
+
+### Add tokyo to developers
+
+```bash
+sudo usermod -aG developers tokyo
+```
+
+### Add berlin to developers and admins
+
+```bash
+sudo usermod -aG developers,admins berlin
+```
+
+### Add professor to admins
+
+```bash
+sudo usermod -aG admins professor
+```
+
+---
+
+## Verification
+
+```bash
+groups tokyo
+groups berlin
+groups professor
+```
+
+### Expected Output
+
+```bash
+tokyo : tokyo developers
+
+berlin : berlin developers admins
+
+professor : professor admins
+```
+
+---
+
+# Task 4 – Shared Directory
+
+## Create Shared Directory
+
+```bash
+sudo mkdir -p /opt/dev-project
+```
+
+---
+
+## Change Group Ownership
+
+```bash
+sudo chgrp developers /opt/dev-project
+```
+
+---
+
+## Set Permissions
+
+```bash
+sudo chmod 775 /opt/dev-project
+```
+
+---
+
+## Permission Explanation
+
+```text
+775 = rwxrwxr-x
+```
+
+| Owner | Group | Others |
+|--------|--------|---------|
+| rwx    | rwx    | r-x     |
+
+Meaning:
+- Owner has full access
+- Group members have full access
+- Others can only read and execute
+
+---
+
+## Verify Permissions
+
+```bash
+ls -ld /opt/dev-project
+```
+
+### Expected Output
+
+```bash
+drwxrwxr-x
+```
+
+---
+
+## Test File Creation
+
+### Create File as tokyo
+
+```bash
+sudo -u tokyo touch /opt/dev-project/tokyo-file.txt
+```
+
+### Create File as berlin
+
+```bash
+sudo -u berlin touch /opt/dev-project/berlin-file.txt
+```
+
+---
+
+## Verify Files
+
+```bash
+ls -l /opt/dev-project
+```
+
+### Expected Output
+
+```bash
+tokyo-file.txt
+berlin-file.txt
+```
+
+---
+
+# Task 5 – Team Workspace
+
+## Create User
+
+```bash
+sudo useradd -m nairobi
+```
+
+## Set Password
+
+```bash
+sudo passwd nairobi
+```
+
+---
+
+## Create Group
+
+```bash
+sudo groupadd project-team
+```
+
+---
+
+## Add Users to Group
+
+```bash
+sudo usermod -aG project-team nairobi
+sudo usermod -aG project-team tokyo
+```
+
+---
+
+## Verify Group Membership
+
+```bash
+groups nairobi
+groups tokyo
+```
+
+### Expected Output
+
+```bash
+nairobi : nairobi project-team
+
+tokyo : tokyo developers project-team
+```
+
+---
+
+## Create Team Workspace Directory
+
+```bash
+sudo mkdir -p /opt/team-workspace
+```
+
+---
+
+## Change Group Ownership
+
+```bash
+sudo chgrp project-team /opt/team-workspace
+```
+
+---
+
+## Set Permissions
+
+```bash
+sudo chmod 775 /opt/team-workspace
+```
+
+---
+
+## Verify Permissions
+
+```bash
+ls -ld /opt/team-workspace
+```
+
+---
+
+## Test File Creation as nairobi
+
+```bash
+sudo -u nairobi touch /opt/team-workspace/test-file.txt
+```
+
+---
+
+## Verify File Creation
+
+```bash
+ls -l /opt/team-workspace
+```
+
+### Expected Output
+
+```bash
+test-file.txt
+```
+
+---
+
+# Users & Groups Created
+
+## Users
+- tokyo
+- berlin
+- professor
+- nairobi
+
+## Groups
+- developers
+- admins
+- project-team
+
+---
+
+# Group Assignments
+
+| User | Groups |
+|------|---------|
+| tokyo | developers, project-team |
+| berlin | developers, admins |
+| professor | admins |
+| nairobi | project-team |
+
+---
+
+# Directories Created
+
+| Directory | Group Owner | Permissions |
+|------------|-------------|-------------|
+| /opt/dev-project | developers | 775 |
+| /opt/team-workspace | project-team | 775 |
+
+---
+
+# Important Commands Used
+
+| Command | Purpose |
+|----------|---------|
+| useradd -m | Create user with home directory |
+| passwd | Set user password |
+| groupadd | Create group |
+| usermod -aG | Add user to supplementary groups |
+| groups | Check user group membership |
+| mkdir -p | Create directory |
+| chgrp | Change group ownership |
+| chmod 775 | Set directory permissions |
+| ls -ld | View directory permissions |
+| sudo -u | Run command as another user |
+
+---
+
+# What I Learned
+
+1. How Linux users and groups are managed
+2. How shared directories work using group permissions
+3. How DevOps teams use Linux permissions for secure collaboration
+
+---
+
+# Real-World DevOps Use Case
+
+Linux user and group management is heavily used in:
+
+- Shared deployment environments
+- CI/CD pipelines
+- Production Linux servers
+- Team-based access control
+- Application deployment permissions
+
+Example:
+- Developers may access deployment directories
+- Admins may manage services and configurations
+- Shared groups help teams collaborate securely
+
+---
+
+# Troubleshooting
+
+## Permission Denied
+
+Use:
+
+```bash
+sudo
+```
+
+---
+
+## User Cannot Access Directory
+
+Check group membership:
+
+```bash
+groups username
+```
+
+Check permissions:
+
+```bash
+ls -ld /path
+```
+
+---
+
+# Conclusion
+
+This challenge helped me understand:
+- Linux user administration
+- Group-based access control
+- Shared directory permissions
+- Real-world Linux security concepts used in DevOps
