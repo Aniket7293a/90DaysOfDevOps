@@ -269,6 +269,6 @@ Another step forward in my **90 Days of DevOps** journey.
 
 Today I practiced Linux users, groups, file ownership, `chown`, `chgrp`, and recursive ownership management.
 
-**Consistency > Perfection.** 💪
+**Consistency > Perfection.** 
 
 #90DaysOfDevOps #DevOps #Linux #LearningInPublic
