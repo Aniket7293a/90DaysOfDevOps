@@ -79,6 +79,11 @@ Verified the changes using:
 ls -l devops-file.txt
 ```
 
+### 📷 Output
+
+![Task 2 – chown](images/day11-task2.png)
+
+
 
 ---
 
@@ -108,6 +113,11 @@ Verified the change:
 ls -l team-notes.txt
 ```
 
+### 📷 Output
+
+![Task 3 – chgrp](images/day11-task3.png)
+
+
 
 ---
 
@@ -133,6 +143,11 @@ Verified:
 ls -l project-config.yaml
 ls -ld app-logs
 ```
+
+### 📷 Output
+
+![Task 4 – Owner and Group](images/day11-task4.png)
+
 
 
 ---
@@ -168,6 +183,11 @@ Verified using:
 ```bash
 ls -lR heist-project/
 ```
+
+### 📷 Output
+
+![Task 5 – Recursive Ownership](images/day11-task5.png)
+
 
 
 ---
@@ -219,6 +239,11 @@ Verified the final ownership:
 ls -l bank-heist/
 ```
 
+### 📷 Output
+
+![Task 6 – Practice Challenge](images/day11-task6.png)
+
+
 
 ---
 
@@ -269,6 +294,6 @@ Another step forward in my **90 Days of DevOps** journey.
 
 Today I practiced Linux users, groups, file ownership, `chown`, `chgrp`, and recursive ownership management.
 
-**Consistency > Perfection.** 
+**Consistency > Perfection.** 💪
 
 #90DaysOfDevOps #DevOps #Linux #LearningInPublic
