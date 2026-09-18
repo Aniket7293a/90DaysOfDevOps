@@ -30,6 +30,9 @@ sudo su
 
 # Task 1 – Check Current Storage
 
+### 📸 Task 1 Screenshot
+![Day 13 Task 1](./images/day13%20task1.png)
+
 ## Check Available Disks
 
 ```bash
@@ -81,6 +84,9 @@ These commands help verify the current storage configuration before creating LVM
 
 # Task 2 – Create Physical Volume
 
+### 📸 Task 2 Screenshot
+![Day 13 Task 2](./images/day13%20task2.png)
+
 Create a Physical Volume from the newly attached EBS disk:
 
 ```bash
@@ -98,6 +104,9 @@ A Physical Volume is the disk or partition that is prepared for use by LVM.
 ---
 
 # Task 3 – Create Volume Group
+
+### 📸 Task 3 Screenshot
+![Day 13 Task 3](./images/day13%20task3.png)
 
 Create a Volume Group using the Physical Volume:
 
@@ -117,6 +126,9 @@ A **Volume Group (VG)** combines Physical Volumes into a storage pool from which
 
 # Task 4 – Create Logical Volume
 
+### 📸 Task 4 Screenshot
+![Day 13 Task 4](./images/day13%20task4.png)
+
 Create a 500 MB Logical Volume:
 
 ```bash
@@ -134,6 +146,9 @@ A **Logical Volume (LV)** works like a flexible virtual partition created from t
 ---
 
 # Task 5 – Format and Mount Logical Volume
+
+### 📸 Task 5 Screenshot
+![Day 13 Task 5](./images/day13%20task5.png)
 
 ## Format with EXT4
 
@@ -164,6 +179,9 @@ The Logical Volume is now formatted and available for storing data.
 ---
 
 # Task 6 – Extend the Logical Volume
+
+### 📸 Task 6 Screenshot
+![Day 13 Task 6](./images/day13%20task6.png)
 
 Extend the Logical Volume by 200 MB:
 
