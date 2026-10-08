@@ -44,30 +44,6 @@ Internet    → IP
 Link        → Ethernet / Wi-Fi
 ```
 
----
-
-## Image Folder
-
-Keep the screenshots in the same repository under:
-
-```text
-day-14/
-├── README.md
-└── images/
-    ├── image-01.png
-    ├── image-02.png
-    ├── image-03.png
-    ├── image-04.png
-    ├── image-05.png
-    ├── image-06.png
-    ├── image-07.png
-    └── task-3.png
-```
-
-> **Note:** If your screenshots have different filenames, rename them to the names above or update the image paths in this README.
-
----
-
 ## 2. Hands-on Checklist — Real Outputs
 
 ### a) Identity — `hostname -I` / `ip addr show`
