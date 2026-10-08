@@ -102,7 +102,6 @@ ip addr show
 
 ![IP Address Output](images/image-02.png)
 
-> **Note:** `172.31.32.252` is a private IP because it falls within the RFC 1918 private range `172.16.0.0/12`.
 
 ---
 
@@ -211,7 +210,7 @@ ss -tulpn
 | Port | Service |
 | ---: | --- |
 | `22` | SSH Server (`sshd`) |
-| `3306` | MySQL Database (`mysqld`) |
+| `53` | Domain Name system (`DNS`) |
 
 ---
 
@@ -253,20 +252,6 @@ An application cannot connect to a database at:
 - Confirm that the IP address and port are correct.
 - Verify that the database is reachable from the application server.
 
-Useful checks:
-
-```bash
-ss -tulpn
-```
-
-```bash
-ping 10.0.1.50
-```
-
-```bash
-nc -vz 10.0.1.50 3306
-```
-
 ---
 
 # Key Learnings
@@ -290,7 +275,6 @@ ss -tulpn
 
 ping 10.0.1.50
 
-nc -vz 10.0.1.50 3306
 ```
 
 ---
