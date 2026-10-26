@@ -208,12 +208,13 @@ fi
 ## Logical Operators
 
 ```bash
-[ "$A" -gt 5 ] && echo "True"
-
-[ "$A" -lt 5 ] || echo "False"
-
-! [ -f file ]
+[ "$age" -ge 18 ] && echo "Adult"
+[ "$status" = "failed" ] || echo "Not failed"
+[ ! -f "app.log" ] && echo "File missing"
 ```
+- `&&` → run next command if previous succeeds
+- `||` → run next command if previous fails
+- `!` → negate a condition
 
 ---
 
@@ -243,9 +244,8 @@ esac
 ## For Loop (List-Based)
 
 ```bash
-for i in 1 2 3 4 5
-do
-    echo $i
+for city in Delhi Mumbai Pune; do
+    echo "$city"
 done
 ```
 
@@ -292,13 +292,25 @@ done
 
 ---
 
-## break and continue
+### Break
+
+Stops the loop immediately.
 
 ```bash
-for i in {1..5}
-do
-    [ $i -eq 3 ] && continue
-    echo $i
+for i in 1 2 3 4 5; do
+    [ "$i" -eq 3 ] && break
+    echo "$i"
+done
+```
+
+### Continue
+
+Skips the current iteration.
+
+```bash
+for i in 1 2 3 4 5; do
+    [ "$i" -eq 3 ] && continue
+    echo "$i"
 done
 ```
 
@@ -321,6 +333,15 @@ done
 cat file.txt | while read line
 do
     echo "$line"
+done
+```
+
+You can also pipe command output:
+
+```bash
+printf '%s\n' "Delhi" "Mumbai" "Pune" |
+while read -r city; do
+    echo "City: $city"
 done
 ```
 
@@ -353,7 +374,7 @@ greet() {
     echo "Hello $1"
 }
 
-greet Sahil
+greet Aniket
 ```
 
 ---
@@ -367,18 +388,22 @@ check() {
     return 0
 }
 ```
-
-Return actual value:
+Use `echo` when you want to produce a value that can be captured:
 
 ```bash
-add() {
-    echo $(($1 + $2))
+get_name() {
+    echo "Aniket"
 }
+
+name=$(get_name)
+echo "$name"
 ```
 
 ---
 
 ## Local Variables
+
+Use `local` to keep variables inside a function.
 
 ```bash
 greet() {
@@ -392,16 +417,27 @@ greet() {
 # 5. Text Processing Commands
 
 ## grep
+Search text using patterns.
 
 ```bash
-grep "error" app.log
+grep "ERROR" app.log
 grep -i "error" app.log
-grep -r "error" .
-grep -c "error" app.log
-grep -n "error" app.log
-grep -v "info" app.log
-grep -E "error|warning" app.log
+grep -r "ERROR" /var/log/
+grep -c "ERROR" app.log
+grep -n "ERROR" app.log
+grep -v "INFO" app.log
+grep -E "ERROR|WARNING" app.log
 ```
+
+Useful flags:
+
+- `-i` → case-insensitive
+- `-r` → recursive
+- `-c` → count matches
+- `-n` → show line numbers
+- `-v` → invert match
+- `-E` → extended regular expressions
+
 
 ---
 
